@@ -112,7 +112,8 @@ class CourseListCBV(APIView):
         :return:
         """
         query_set = Course.objects.all()
-        res = CourseSerializer(instance=query_set, many=True)  # instance是查询出来的数据
+        res = CourseSerializer(instance=query_set, many=True)
+        a = res.data# instance是查询出来的数据
         return Response(data=res.data, status=status.HTTP_200_OK)
 
     def post(self, request):
